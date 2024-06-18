@@ -1,0 +1,39 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive posts Page</title>
+    <link rel="stylesheet" href="{% static 'css/mypost.css' %}">
+</head>
+<body>
+    <div class="navbar">
+        <div class="brand">
+            <h1>{{user}}</h1>
+        </div>
+        <nav class="navlinks">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'add_post' %}">Add Post</a></li>
+            </ul>
+        </nav>
+        <div class="logout">
+            <button><a href="{% url 'logout' %}">Logout</a></button>
+        </div>
+    </div>
+
+    <div class="content">
+        {% if posts %}
+            {% for post in posts %}
+                <div class="post">
+                    <h2>{{post.title}}</h2>
+                    <p>{{post.content}}</p>
+                    <button><a href="{% url 'edit_post' post.id %}">Edit</a></button>
+                    <button><a href="{% url 'delete_post' post.id %}">Delete</a></button>
+                </div>
+            {% endfor %}
+        {% endif %}
+    </div>
+</body>
+</html>

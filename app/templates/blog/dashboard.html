@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body style="background-image: url('{% static "img/img1.jpg" %}');">
+    <div class="container">
+        <h1>Welcome to My Blog</h1>
+        <p>Explore and interact with our community!</p>
+        <div class="buttons">
+            <a href="{% url 'register' %}" class="btn">Register</a>
+            <a href="{% url 'login' %}" class="btn">Login</a>
+        </div>
+    </div>
+</body>
+</html>
